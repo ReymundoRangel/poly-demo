@@ -1,0 +1,20 @@
+<paper-fab mini icon="add" title="Add a new record" (click)="addSelected(grid);"></paper-fab>
+<!--<search-filters [merchants]="merchants" (filtersChange)="filters=$event;onFiltersChanged(grid);"></search-filters>-->
+<search-issues [projects]="projects" (filtersChange)="filters=$event;onFiltersChanged(grid);"></search-issues>
+<vaadin-grid #grid [items]="viewIssues" frozen-columns="2" (selected-items-changed)="selected(grid)">
+      <table>
+        <colgroup>
+          <col name="issueNumber" width="80">
+          <col name="issueName">
+          <col name="projectCode">
+          <col name="issueTypeName" sortable>
+          <col name="issueStatusName" >
+          <col name="assignedUser" >
+          <col name="effortCode" >
+          <col name="releaseNo" >
+          <col name="description">
+          <col name=" " flex />
+        </colgroup>
+      </table>
+</vaadin-grid>
+<paper-toast text="No results. Check filters." #toast duration="0"></paper-toast>

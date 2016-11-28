@@ -1,0 +1,34 @@
+<div class="toolbar" (click)="toggleFilters = !toggleFilters" [ngClass]="{open: toggleFilters}">
+  Filters
+  <iron-icon icon="filter-list"></iron-icon>
+  <div class="badge">{{activeFilterCount}}</div>
+</div>
+<div class="filters" [ngClass]="{open: toggleFilters}">
+  <div class="row">
+    <div class="dates col">
+      <vaadin-date-picker label="Begin Recorded" [(value)]="filters.after" (valueChange)="filtersChanged()" initial-position="2016-01-01"></vaadin-date-picker>
+      <vaadin-date-picker label="End Recorded" [(value)]="filters.before" (valueChange)="filtersChanged()" initial-position="2016-11-30"></vaadin-date-picker>
+    </div>
+    <div class="projects col">
+      <!--<vaadin-combo-box class="projects" [items]="projects" label="Project" [(value)]="filters.projectName" (valueChange)="filtersChanged()"></vaadin-combo-box>-->
+        <vaadin-combo-box label="Project"
+                            [items]="projects"
+                            item-label-path="projectCode"
+                            item-value-path="k_ProjectId"
+                            [(value)]="projectValue"
+                            (valueChange)="filtersChanged()">
+        </vaadin-combo-box>
+    </div>
+  </div>
+  <div class="row">
+    <div class="amounts col">
+      <paper-input placeholder="Min ($)" (keyup)="filters.min = $event.target.value; filtersChanged();"></paper-input>
+      <paper-input placeholder="Max ($)" (keyup)="filters.max = $event.target.value; filtersChanged();"></paper-input>
+    </div>
+    <div class="checkboxes col">
+      <span class="caption">Issues Types</span>
+      <paper-checkbox (change)="updateType($event); filtersChanged();" name="Bug">Bug</paper-checkbox>
+      <paper-checkbox (change)="updateType($event); filtersChanged();" name="Enhancement">Enhancement</paper-checkbox>
+    </div>
+  </div>
+</div>

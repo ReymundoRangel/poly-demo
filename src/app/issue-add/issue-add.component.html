@@ -1,0 +1,134 @@
+<div class="main-layout">
+  <h3>Issue Form - ADD</h3>
+  <!--<paper-icon-button icon="close" (click)="close()"></paper-icon-button>-->
+    <div class="buttons-layout">
+    <paper-button raised [disabled]="!issueForm.form.valid" (click)="issueForm.ngSubmit.emit(issueForm)">Save</paper-button>
+    <paper-button (click)="close()">Cancel</paper-button>
+    </div>
+</div>
+<form (ngSubmit)="onSubmit($event.value)" #issueForm="ngForm">
+    <div class="form">
+        <paper-input #issueName ngDefaultControl name="issue.issueName" [(ngModel)]="issue.issueName"  label="Issue Name" auto-validate required error-message="Issue name required"></paper-input>
+        <paper-textarea #description ngDefaultControl name="issue.description" [(ngModel)]="issue.description" label="Description of Issue"></paper-textarea>
+        <div class="row">
+            <div class="col-md-4">
+                <vaadin-combo-box label="Project"
+                                    [items]="projects"
+                                    item-label-path="projectCode"
+                                    item-value-path="k_ProjectId"
+                                    [(value)]="projectValue"
+                                    (selected-item-changed)="projectSelectedItem=$event.detail.value">
+                </vaadin-combo-box>
+                <vaadin-combo-box label="Issue-Type"
+                                    [items]="issueTypes"
+                                    item-label-path="issueTypeCode"
+                                    item-value-path="k_IssueTypeId"
+                                    [(value)]="issueTypeValue"
+                                    (selected-item-changed)="issueTypeSelectedItem=$event.detail.value">
+                </vaadin-combo-box>
+                <vaadin-combo-box label="Issue-Status"
+                                    [items]="issueStatuses"
+                                    item-label-path="issueStatusCode"
+                                    item-value-path="k_IssueStatusId"
+                                    [(value)]="issueStatusValue"
+                                    (selected-item-changed)="issueStatusSelectedItem=$event.detail.value">
+                </vaadin-combo-box>
+                <vaadin-combo-box label="Priority"
+                                    [items]="priorities"
+                                    item-label-path="priorityCode"
+                                    item-value-path="k_PriorityId"
+                                    [(value)]="value"
+                                    (selected-item-changed)="selectedItem=$event.detail.value">
+                </vaadin-combo-box>
+            </div>
+            <div class="col-md-4">
+                <vaadin-combo-box label="User-Name"
+                                    [items]="users"
+                                    item-label-path="logInName"
+                                    item-value-path="k_UserId"
+                                    [(value)]="userValue"
+                                    (selected-item-changed)="userSelectedItem=$event.detail.value">
+                </vaadin-combo-box>
+                <vaadin-combo-box label="Effort"
+                                    [items]="efforts"
+                                    item-label-path="effortCode"
+                                    item-value-path="k_EffortId"
+                                    [(value)]="effortValue"
+                                    (selected-item-changed)="effortSelectedItem=$event.detail.value">
+                </vaadin-combo-box>
+                <vaadin-combo-box label="Release"
+                                    [items]="releases"
+                                    item-label-path="releaseNo"
+                                    item-value-path="k_ReleaseId"
+                                    [(value)]="releaseValue"
+                                    (selected-item-changed)="releaseSelectedItem=$event.detail.value">
+                </vaadin-combo-box>
+            </div>
+            <div class="col-md-3">
+                <vaadin-date-picker auto-validate required label="Record:" name="issue.recordDateStr" [(ngModel)]="issue.recordDateStr"></vaadin-date-picker>
+                <vaadin-date-picker auto-validate required label="Assign:" name="issue.assignDateStr" [(ngModel)]="issue.assignDateStr"></vaadin-date-picker>
+                <vaadin-date-picker auto-validate required label="Target:" name="issue.targetDateStr" [(ngModel)]="issue.targetDateStr"></vaadin-date-picker>
+                <vaadin-date-picker auto-validate required label="Complete:" name="issue.completeDateStr" [(ngModel)]="issue.completeDateStr"></vaadin-date-picker>
+                <vaadin-date-picker auto-validate required label="Test:" name="issue.testDateStr" [(ngModel)]="issue.testDateStr"></vaadin-date-picker>
+            </div>            
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <vaadin-combo-box label="Component1"
+                                    name="issue.k_Component1ID"
+                                    [items]="myComponent1s"
+                                    item-label-path="componentCode"
+                                    item-value-path="k_ComponentId"
+                                    [(ngModel)]="issue.k_Component1ID"
+                                    (selected-item-changed)="myComponent1SelectedItem=$event.detail.value">
+                </vaadin-combo-box>
+                <vaadin-combo-box label="Component2"
+                                    name="issue.k_Component2ID"
+                                    [items]="myComponent2s"
+                                    item-label-path="componentCode"
+                                    item-value-path="k_ComponentId"
+                                    [(ngModel)]="issue.k_Component2ID"
+                                    (selected-item-changed)="myComponent2SelectedItem=$event.detail.value">
+                </vaadin-combo-box>
+                <vaadin-combo-box label="Component3"
+                                    name="issue.k_Component3ID"
+                                    [items]="myComponent3s"
+                                    item-label-path="componentCode"
+                                    item-value-path="k_ComponentId"
+                                    [(ngModel)]="issue.k_Component3ID"
+                                    (selected-item-changed)="myComponent3SelectedItem=$event.detail.value">
+                </vaadin-combo-box>
+                <vaadin-combo-box label="Component4"
+                                    name="issue.k_Component3ID"
+                                    [items]="myComponent4s"
+                                    item-label-path="componentCode"
+                                    item-value-path="k_ComponentId"
+                                    [(ngModel)]="issue.k_Component4ID"
+                                    (selected-item-changed)="myComponent4SelectedItem=$event.detail.value">
+                </vaadin-combo-box>
+                <vaadin-combo-box label="Component5"
+                                    name="issue.k_Component5ID"
+                                    [items]="myComponent5s"
+                                    item-label-path="componentCode"
+                                    item-value-path="k_ComponentId"
+                                    [(ngModel)]="issue.k_Component5ID"
+                                    (selected-item-changed)="myComponent5SelectedItem=$event.detail.value">
+                </vaadin-combo-box>
+            </div>
+            <div class="col-md-6">
+                <paper-input #level1Name ngDefaultControl name="issue.level1Name" [(ngModel)]="issue.level1Name"  label="Level1 Name" auto-validate required error-message="Level1 name required"></paper-input>
+                <paper-input #level2Name ngDefaultControl name="issue.level2Name" [(ngModel)]="issue.level2Name"  label="Level2 Name" ></paper-input>
+                <paper-input #level3Name ngDefaultControl name="issue.level3Name" [(ngModel)]="issue.level3Name"  label="Level3 Name" ></paper-input>
+                <paper-input #level4Name ngDefaultControl name="issue.level4Name" [(ngModel)]="issue.level4Name"  label="Level4 Name" ></paper-input>
+                <paper-input #level5Name ngDefaultControl name="issue.level5Name" [(ngModel)]="issue.level5Name"  label="Level5 Name" ></paper-input>
+            </div>
+        </div>
+        <paper-input #url ngDefaultControl name="issue.url" [(ngModel)]="issue.url"  label="URL"></paper-input>
+        <paper-input #gotoLink ngDefaultControl name="issue.gotoLink" [(ngModel)]="issue.gotoLink"  label="GOTO Link"></paper-input>
+    </div>
+</form>
+
+
+
+

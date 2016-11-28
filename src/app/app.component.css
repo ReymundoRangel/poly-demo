@@ -1,0 +1,24 @@
+/*paper-input,*/
+vaadin-combo-box {
+  background: var(--paper-grey-200);
+  max-width: 300px;
+
+  padding: 8px;
+}
+
+vaadin-date-picker {
+  background: var(--paper-grey-200);
+  max-width: 300px;
+  padding: 8px;
+}
+
+.main-layout {
+  display: flex;
+  justify-content: space-between;
+}
+
+form {
+  display: flex;
+  flex: 2;
+  overflow: auto;
+}

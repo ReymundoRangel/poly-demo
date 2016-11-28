@@ -1,0 +1,17 @@
+<div class="toolbar">
+  <h1>Project Management Application</h1>
+  <!--<img src="images/app-icon.svg" width="24" height="24" />-->
+  <span>PROFILE</span>
+</div>
+<div class="content">
+  <issues-list #list (editExpense)="expenseEditor.expense=$event; dialog.open();" (addIssueEvt)="addIssueComponent; dialog2.open();" ></issues-list>
+  <overview-panel #panel></overview-panel>
+</div>
+
+<paper-dialog #dialog modal>
+  <expense-editor #expenseEditor (closeEditor)="dialog.close(); list.refreshItems(); panel.setExpenses();"></expense-editor>
+</paper-dialog>
+
+<paper-dialog #dialog2 modal >
+  <issue-add #IssueAdd (closeEditor)="dialog2.close(); list.refreshItems(); panel.setExpenses();"></issue-add>
+</paper-dialog>
