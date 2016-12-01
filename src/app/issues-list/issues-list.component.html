@@ -4,12 +4,12 @@
 <vaadin-grid #grid [items]="viewIssues" frozen-columns="2" (selected-items-changed)="selected(grid)">
       <table>
         <colgroup>
-          <col name="issueNumber" width="80">
+          <col name="issueNumber" width="80" sortable>
           <col name="issueName">
           <col name="projectCode">
           <col name="issueTypeName" sortable>
           <col name="issueStatusName" >
-          <col name="assignedUser" >
+          <col name="assignedUser" sortable>
           <col name="effortCode" >
           <col name="releaseNo" >
           <col name="description">

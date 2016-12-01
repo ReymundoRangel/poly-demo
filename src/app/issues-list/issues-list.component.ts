@@ -19,7 +19,7 @@ declare var accounting: any;
 })
 
 export class IssuesList {
-  @Output() editExpense = new EventEmitter();
+  @Output() editIssueEvt = new EventEmitter();
   @Output() addIssueEvt = new EventEmitter();
 
   @ViewChild('grid') grid: any;
@@ -120,7 +120,8 @@ export class IssuesList {
       grid.selection.clear();
       console.log("selectedGrid",selection[0]);
       grid.getItem(selection[0], (err: any, item: any) => {
-        this.editExpense.emit(item);
+        //this.editExpense.emit(item);
+        this.editIssueEvt.emit(item);
       });
     }
   }

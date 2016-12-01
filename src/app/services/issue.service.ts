@@ -11,9 +11,10 @@ import { Observable } from 'rxjs/Observable';
 import { HttpService } from './http.service';
 
 import { Issue } from '../models/issue.model';
+import { IssueInfo } from '../models/issue-info.model';
+
 import { ViewIssue } from '../models/viewIssue.model';
 
-//import { IssueInfo } from '../models/issue-info.model';
 
 @Injectable()
 
@@ -35,6 +36,12 @@ export class IssueService {
             return this.httpService.httpPost(viewIssue, url);
     }
 
+    public updateIssue(issueInfo: IssueInfo): Observable<any> {
+            let url = this.baseUrl+"UpdateIssue";
+            console.log('service:UpdateIssue',url)
+            return this.httpService.httpPost(issueInfo, url);
+    }
+
 
 
 /*
@@ -49,10 +56,6 @@ export class IssueService {
             return this.httpService.httpPost(issueInfo, url);
     }
 
-    public updateIssue(issueInfo: IssueInfo): Observable<any> {
-            let url = this.baseUrl+"updateIssue";
-            return this.httpService.httpPost(issueInfo, url);
-    }
 
 
     public authenticate(issue: IssueInfo): Observable<any> {

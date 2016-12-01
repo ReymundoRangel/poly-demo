@@ -48,8 +48,8 @@
 paper-input,
 vaadin-combo-box,
 vaadin-date-picker {
-  margin-right: 2px;
-  margin-left: 2px;
+  margin-right: 48px;
+  margin-left: 16px;
 }
 
 paper-input,

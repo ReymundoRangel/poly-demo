@@ -21,14 +21,23 @@
     </div>
   </div>
   <div class="row">
-    <div class="amounts col">
+    <!--<div class="amounts col">
       <paper-input placeholder="Min ($)" (keyup)="filters.min = $event.target.value; filtersChanged();"></paper-input>
       <paper-input placeholder="Max ($)" (keyup)="filters.max = $event.target.value; filtersChanged();"></paper-input>
-    </div>
-    <div class="checkboxes col">
-      <span class="caption">Issues Types</span>
-      <paper-checkbox (change)="updateType($event); filtersChanged();" name="Bug">Bug</paper-checkbox>
-      <paper-checkbox (change)="updateType($event); filtersChanged();" name="Enhancement">Enhancement</paper-checkbox>
-    </div>
+    </div>-->
+      <div class="checkboxes col">
+        <span class="caption">Issues Types</span>
+        <paper-checkbox (change)="updateType($event); filtersChanged();" name="Bug">Bug</paper-checkbox>
+        <paper-checkbox (change)="updateType($event); filtersChanged();" name="Enhancement">Enhancement</paper-checkbox>
+      </div>
+      <div class="checkboxes col">
+        <span class="caption">Issues Status</span>
+        <paper-checkbox (change)="updateType($event); filtersChanged();" name="Bug">Open</paper-checkbox>
+        <paper-checkbox (change)="updateType($event); filtersChanged();" name="Enhancement">Approved</paper-checkbox>
+        <paper-checkbox (change)="updateType($event); filtersChanged();" name="Enhancement">Design</paper-checkbox>
+        <paper-checkbox (change)="updateType($event); filtersChanged();" name="Enhancement">Testing</paper-checkbox>
+        <paper-checkbox (change)="updateType($event); filtersChanged();" name="Enhancement">Release</paper-checkbox>
+        <paper-checkbox (change)="updateType($event); filtersChanged();" name="Enhancement">Completed</paper-checkbox>
+      </div>
   </div>
 </div>

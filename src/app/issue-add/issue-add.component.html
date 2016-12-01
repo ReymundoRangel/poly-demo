@@ -2,7 +2,8 @@
   <h3>Issue Form - Add</h3>
   <!--<paper-icon-button icon="close" (click)="close()"></paper-icon-button>-->
     <div class="buttons-layout">
-    <paper-button raised [disabled]="!issueForm.form.valid" (click)="issueForm.ngSubmit.emit(issueForm)">Save</paper-button>
+    <!--<paper-button raised [disabled]="!issueForm.form.valid" (click)="issueForm.ngSubmit.emit(issueForm)">Save</paper-button>-->
+    <paper-button raised (click)="issueForm.ngSubmit.emit(issueForm)">Save</paper-button>
     <paper-button (click)="close()">Cancel</paper-button>
     </div>
 </div>
@@ -13,63 +14,70 @@
         <div class="row">
             <div class="col-md-4">
                 <vaadin-combo-box label="Project"
+                                    name="issue.k_ProjectId"                
                                     [items]="projects"
                                     item-label-path="projectCode"
                                     item-value-path="k_ProjectId"
-                                    [(value)]="projectValue"
+                                    [(ngModel)]="issue.k_ProjectId"
                                     (selected-item-changed)="projectSelectedItem=$event.detail.value">
                 </vaadin-combo-box>
                 <vaadin-combo-box label="Issue-Type"
+                                    name="issue.k_IssueTypeId"                
                                     [items]="issueTypes"
                                     item-label-path="issueTypeCode"
                                     item-value-path="k_IssueTypeId"
-                                    [(value)]="issueTypeValue"
+                                    [(ngModel)]="issue.k_IssueTypeId"
                                     (selected-item-changed)="issueTypeSelectedItem=$event.detail.value">
                 </vaadin-combo-box>
                 <vaadin-combo-box label="Issue-Status"
+                                    name="issue.k_IssueStatusId"                
                                     [items]="issueStatuses"
                                     item-label-path="issueStatusCode"
                                     item-value-path="k_IssueStatusId"
-                                    [(value)]="issueStatusValue"
+                                    [(ngModel)]="issue.k_IssueStatusId"
                                     (selected-item-changed)="issueStatusSelectedItem=$event.detail.value">
                 </vaadin-combo-box>
                 <vaadin-combo-box label="Priority"
+                                    name="issue.k_PriorityId"                
                                     [items]="priorities"
                                     item-label-path="priorityCode"
                                     item-value-path="k_PriorityId"
-                                    [(value)]="value"
+                                    [(ngModel)]="issue.k_PriorityId"
                                     (selected-item-changed)="selectedItem=$event.detail.value">
                 </vaadin-combo-box>
             </div>
             <div class="col-md-4">
                 <vaadin-combo-box label="User-Name"
+                                    name="issue.k_UserId"                
                                     [items]="users"
                                     item-label-path="logInName"
                                     item-value-path="k_UserId"
-                                    [(value)]="userValue"
+                                    [(ngModel)]="issue.k_UserId"
                                     (selected-item-changed)="userSelectedItem=$event.detail.value">
                 </vaadin-combo-box>
                 <vaadin-combo-box label="Effort"
+                                    name="issue.k_EffortId"                
                                     [items]="efforts"
                                     item-label-path="effortCode"
                                     item-value-path="k_EffortId"
-                                    [(value)]="effortValue"
+                                    [(ngModel)]="issue.k_EffortId"
                                     (selected-item-changed)="effortSelectedItem=$event.detail.value">
                 </vaadin-combo-box>
                 <vaadin-combo-box label="Release"
+                                    name="issue.k_ReleaseId"                
                                     [items]="releases"
                                     item-label-path="releaseNo"
                                     item-value-path="k_ReleaseId"
-                                    [(value)]="releaseValue"
+                                    [(ngModel)]="issue.k_ReleaseId"
                                     (selected-item-changed)="releaseSelectedItem=$event.detail.value">
                 </vaadin-combo-box>
             </div>
             <div class="col-md-3">
-                <vaadin-date-picker auto-validate required label="Record:" name="issue.recordDateStr" [(ngModel)]="issue.recordDateStr"></vaadin-date-picker>
-                <vaadin-date-picker auto-validate required label="Assign:" name="issue.assignDateStr" [(ngModel)]="issue.assignDateStr"></vaadin-date-picker>
-                <vaadin-date-picker auto-validate required label="Target:" name="issue.targetDateStr" [(ngModel)]="issue.targetDateStr"></vaadin-date-picker>
-                <vaadin-date-picker auto-validate required label="Complete:" name="issue.completeDateStr" [(ngModel)]="issue.completeDateStr"></vaadin-date-picker>
-                <vaadin-date-picker auto-validate required label="Test:" name="issue.testDateStr" [(ngModel)]="issue.testDateStr"></vaadin-date-picker>
+                <vaadin-date-picker auto-validate required label="Record:" name="issue.recordDate" [(ngModel)]="issue.recordDate"></vaadin-date-picker>
+                <vaadin-date-picker auto-validate required label="Assign:" name="issue.assignDate" [(ngModel)]="issue.assignDate"></vaadin-date-picker>
+                <vaadin-date-picker auto-validate required label="Target:" name="issue.targetDate" [(ngModel)]="issue.targetDate"></vaadin-date-picker>
+                <vaadin-date-picker auto-validate required label="Complete:" name="issue.completeDate" [(ngModel)]="issue.completeDate"></vaadin-date-picker>
+                <vaadin-date-picker auto-validate required label="Test:" name="issue.testDate" [(ngModel)]="issue.testDate"></vaadin-date-picker>
             </div>            
         </div>
         <br>
@@ -100,7 +108,7 @@
                                     (selected-item-changed)="myComponent3SelectedItem=$event.detail.value">
                 </vaadin-combo-box>
                 <vaadin-combo-box label="Component4"
-                                    name="issue.k_Component3ID"
+                                    name="issue.k_Component4ID"
                                     [items]="myComponent4s"
                                     item-label-path="componentCode"
                                     item-value-path="k_ComponentId"
